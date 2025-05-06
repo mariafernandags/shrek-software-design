@@ -1,47 +1,76 @@
-# Shrek Software Design Project
+# Shrek Universe - Software Modeling Project🧙‍♂️
 
-This project was developed as part of the **Software Design** course at the **Federal University of Itajubá (UNIFEI)**. It explores object-oriented design principles through the fictional universe of *Shrek*, using Java as the implementation language.
+## Overview
 
-The objective was to model complex interactions between characters, kingdoms, magical elements, and events, while applying software design patterns to create a maintainable and extensible codebase.
+This project was developed as part of the **"Software Design"** course at the Federal University of Itajubá (UNIFEI) during the second semester of 2024. The main objective was to model a fictional universe using Unified Modeling Language (UML) and implement the resulting model in Java.
 
-## Applied Design Patterns
+For this project, I chose the **animated universe of Shrek**, a rich and imaginative world that allowed for the application of advanced object-oriented design principles and design patterns.
 
-### Singleton Pattern – Rumpelstiltskin
+---
 
-The Singleton pattern was applied to the character **Rumpelstiltskin**, a magical being known for his manipulation and deal-making abilities. This pattern ensures that only one instance of Rumpelstiltskin exists throughout the application.
+## Objectives
 
-By using the Singleton, we guarantee that every interaction with Rumpelstiltskin refers to the same object instance. This is particularly useful for a character that centralizes and controls magical contracts, avoiding inconsistencies and unintended behavior due to multiple instances.
+- Model a fictional universe (Shrek) using UML.
+- Identify entities, relationships, and behaviors present in the universe.
+- Apply object-oriented principles to model the system with class diagrams.
+- Implement the system in Java, respecting the UML model.
+- Apply at least two recognized software design patterns.
 
-**Benefits of Singleton in this context:**
-- Centralized control over all deals.
-- Prevents duplicate representations of a unique magical entity.
-- Ensures integrity and consistency of all magical contracts managed by Rumpelstiltskin.
+---
 
-### State Pattern – Magic Flute
+## UML Model Summary
 
-The **State** design pattern was used in the implementation of the **Magic Flute**, a powerful object used to influence characters’ behavior. The flute can switch between different modes (states) such as:
+The UML class diagram (included in this repository as `shrek.png`) captures the core elements of the Shrek universe. Some highlights of the model include:
 
-- `SilenceState` – where the flute remains inactive.
-- `DanceMelodyState` – where the flute emits a magical melody that forces characters (such as ogres) to dance involuntarily.
+### Entities
 
-The use of the State pattern allows the behavior of the flute to change dynamically at runtime depending on its internal state, following the Open/Closed Principle. This abstraction simplifies the logic for managing behaviors and encapsulates them into separate classes.
+- **Being (Abstract Class):** Superclass for all main characters such as `Human`, `Ogre`, `Creature`, and their specific types like `Princess`, `Fairy`, `Wizard`, and `Witch`.
+- **Flute and Melodies:** The `Flute` class can execute different melodies based on the `Melody` interface, represented by classes like `DanceMelody` and `Silence`.
+- **Rumpelstiltskin:** Modeled as a Singleton to ensure a single instance with unique characteristics.
+- **Contract, Curse, Potion, Kingdom, Castle:** Supporting classes that reflect magical, legal, and geographical aspects of the Shrek universe.
 
-**Benefits of State in this context:**
-- Encapsulates state-specific logic into individual classes.
-- Makes the behavior of the flute extensible without altering existing code.
-- Allows for more readable and modular implementation of mode transitions.
+---
 
-## Project Overview
+### Associations and Composition
 
-The system simulates the storyline of the first *Shrek* movie and extends it with additional narrative elements from sequels and side stories. Characters such as Shrek, Fiona, Donkey, and Rumpelstiltskin are represented as Java classes with appropriate relationships and attributes.
+- A `Kingdom` contains `Castles` and is located in a `Biome`.
+- Characters can `sign` contracts or be involved in `Curses`.
+- A `Flute` is composed of a melody (Strategy pattern via interface).
+- `EnchantedObjects` are used by characters such as witches and wizards.
+- The potion class has two specializations: `Transformation` and `Love`.
 
-A UML diagram (`shrek.png`) is included in the repository, illustrating the structure of the classes and their interactions.
+---
 
-## Academic Context
+## Design Patterns
 
-This project was developed in 2024 as part of the **Software Design** course in the Computer Engineering program at the Federal University of Itajubá (UNIFEI). It emphasizes the practical application of design patterns in the modeling of complex systems and storytelling-based software design.
+### 1. Singleton – **Rumpelstiltskin**
 
-## Repository
+The class `Rumpelstiltskin` was implemented using the Singleton pattern. This ensures that only one instance of Rumpelstiltskin exists in the application, consistent with his unique personality and plot role.
 
-The project source code and documentation are available at:  
-[https://github.com/mariafernandags/shrek-software-design](https://github.com/mariafernandags/shrek-software-design)
+- Private constructor  
+- Static instance variable  
+- Public `getInstance()` method  
+
+---
+
+### 2. State – **Flute Melodies (DanceMelody / Silence)**
+
+The `State` pattern was applied to the `Flute` class, where different `Melody` states (`DanceMelody`, `Silence`) can be executed. This models the dynamic behavior of the flute depending on the current melody it holds.
+
+- `Melody` is an interface with an `execute()` method.  
+- Concrete states like `DanceMelody` and `Silence` implement the interface.  
+- The `Flute` holds a reference to a `Melody`, allowing it to change behavior at runtime.  
+
+---
+
+## Implementation
+
+The project was fully implemented in **Java**, following the modeled UML structure. Each class was created with its respective attributes and methods. The design was made to be scalable, allowing easy future extensions (e.g., adding new beings, potions, or melodies).
+
+---
+
+## Author
+
+Developed by **Maria Fernanda Guimarães Soares**  
+Federal University of Itajubá - UNIFEI  
+Projeto de Software – 2nd Semester, 2024
