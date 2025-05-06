@@ -20,7 +20,7 @@ For this project, I chose the **animated universe of Shrek**, a rich and imagina
 
 ## UML Model Summary
 
-The UML class diagram (included in this repository as `shrek.png`) captures the core elements of the Shrek universe. Some highlights of the model include:
+The UML class diagram (included in this repository as `shrek.png` and `shrek.dia`) captures the core elements of the Shrek universe. Some highlights of the model include:
 
 ### Entities
 
@@ -29,7 +29,6 @@ The UML class diagram (included in this repository as `shrek.png`) captures the 
 - **Rumpelstiltskin:** Modeled as a Singleton to ensure a single instance with unique characteristics.
 - **Contract, Curse, Potion, Kingdom, Castle:** Supporting classes that reflect magical, legal, and geographical aspects of the Shrek universe.
 
----
 
 ### Associations and Composition
 
@@ -51,7 +50,6 @@ The class `Rumpelstiltskin` was implemented using the Singleton pattern. This en
 - Static instance variable  
 - Public `getInstance()` method  
 
----
 
 ### 2. State – **Flute Melodies (DanceMelody / Silence)**
 
